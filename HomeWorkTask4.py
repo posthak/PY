@@ -13,4 +13,4 @@ s = int(input())
 if (s % 6 == 0 and s > 0):
     print(f"{int(s/6)}' ' {int((s/6)*4)} ' ' {int(s/6)}")
 else:
-print('Incorrect number')
+    print('Incorrect number')
