@@ -7,10 +7,9 @@
 # 24 -> 4 16 4
 # 60 -> 10 40 10
 
-print('Input number of birds: ')
-s = int(input())
+s = int(input('Input number of birds: '))
 
 if (s % 6 == 0 and s > 0):
-    print(f"{s} -> {int(s/6)} {int((s/6)*4)} {int(s/6)}")
+    print(f"{s} -> {s//6} {s//6*4} {s//6}")
 else:
     print('Incorrect number')
