@@ -6,22 +6,20 @@
 # 3 2 1 -> no
 # Подготовил два варианта решения
 
-# I Решение, где можно отломить точное количество долек в ряде
-width = int(input('Input  width of chocolate: '))
-height = int(input('Input height of chocolate: '))
-piece = int(input('Input number of pieces to take: '))
-
-if (piece == width or piece == height) and not (width < 2 or height < 2):
-    print(f"{piece} {width} {height} -> yes")
-else:
-    print(f"{piece} {width} {height} -> no")
-
-# II Решение, где можно отломить заданое кол-во долек если даже в ряде их больше
-width = int(input('Input  width of chocolate: '))
-height = int(input('Input height of chocolate: '))
-piece = int(input('Input number of pieces to take: '))
-
-if (piece <= width or piece <= height) and not (width < 2 or height < 2):
-    print(f"{piece} {width} {height} -> yes")
-else:
-    print(f"{piece} {width} {height} -> no")
+while True:
+    try:
+        n = int(input("Введите длину шоколадки: "))
+        m = int(input("Введите ширину шоколадки: "))
+        k = int(input("Введите количество кусочков: "))
+        if k < m * n:
+            if (k % m == 0 or k % n == 0):
+                print(f'Можно ломать!')
+                break
+        elif k == m * n:
+            print('Ломать не нужно! Забирайте целиком!')
+            break
+        else:
+            print('Столько кусочков нет!')
+            break
+    except:
+        print('Некорректный ввод. Попробуйте еще раз!')
