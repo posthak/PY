@@ -5,16 +5,22 @@
 # 5 -> 1 0 1 1 0
 # 2
 import random
-array = []
-n = 5
-sum = 0
-for item in range(n):
-    array.append(random.randint(0, 1))
-    sum += array[item]
 
-if sum < n/2:
-    print(f"{n} -> {array}")
-    print(sum)
-else:
-    print(f"{n} -> {array}")
-    print(n-sum)
+
+def GetMinCoins():
+    array = []
+    n = 5
+    sum = 0
+    for item in range(n):
+        array.append(random.randint(0, 1))
+        sum += array[item]
+
+    if sum < n/2:
+        print(f"{n} -> {array}")
+        print(sum)
+    else:
+        print(f"{n} -> {array}")
+        print(n-sum)
+
+
+GetMinCoins()
