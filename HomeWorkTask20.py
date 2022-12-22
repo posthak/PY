@@ -31,12 +31,12 @@ dictionary = \
      8: 'JXШЭЮ',
      10: 'QZФЩЪ'}
 
-i = 0
+amount = 0
 for s in text:
     for k in dictionary:
         if dictionary[k].find(s.upper()) >= 0:
-            i += k
+            amount += k
 
 print("\n")
 print(f"Input: {text}")
-print(f"Output: {i}")
+print(f"Output: {amount}")
