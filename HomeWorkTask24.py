@@ -24,10 +24,10 @@ def FillArray(len, arr):
 n = int(input("Input the quantity of bushes: "))
 array = []
 resArray = FillArray(n, array)
-if (resArray[-1]+resArray[0] + resArray[1]) > (resArray[-1]+resArray[0] + resArray[-2]):
-    max = (resArray[-1]+resArray[0] + resArray[1])
-else:
+max = resArray[-1]+resArray[0] + resArray[1]
+if max < resArray[-1]+resArray[0] + resArray[-2]:
     max = resArray[-1]+resArray[0] + resArray[-2]
+
 for i in range(1, n-1):
     if max < resArray[i-1]+resArray[i] + resArray[i+1]:
         max = resArray[i-1]+resArray[i] + resArray[i+1]
