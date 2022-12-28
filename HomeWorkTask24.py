@@ -13,6 +13,7 @@
 #  4 2 3 1)
 # Output: 9
 import random
+import json
 
 
 def FillArray(len, arr):
@@ -21,9 +22,26 @@ def FillArray(len, arr):
     return arr
 
 
+def WriteToFile(arr):
+    data = open('file.txt', 'w')
+    data.writelines(str(arr))
+    data.close()
+
+
+def ReadFormFile():
+    path = 'file.txt'
+    data = open(path, 'r')
+    # ar = data.readlines()
+    ar = json.load(data)
+    data.close()
+    return ar
+
+
 n = int(input("Input the quantity of bushes: "))
 array = []
-resArray = FillArray(n, array)
+WriteToFile(FillArray(n, array))
+resArray = ReadFormFile()
+
 max = resArray[-1]+resArray[0] + resArray[1]
 if max < resArray[-1]+resArray[0] + resArray[-2]:
     max = resArray[-1]+resArray[0] + resArray[-2]
