@@ -1,36 +1,58 @@
-def read_data_from_file(name):
-    result = []
-    print(name)
+def ReadDataFromFile(name):
     with open(name, 'r', encoding='utf8') as datafile:
-        for line in datafile:
-            result.append(line.strip('\n').split(','))
-        return result
+        return list(map(lambda result: result.strip('\n').split(','), datafile))
 
 
-def save_data_to_file(name, data_list):
+def SaveDataToFile(name, data_list):
     with open(name, 'a', encoding='utf8') as datafile:
         datafile.write(data_list + '\n')
 
 
+def CollectRoutes(busData, driverData, routeData):
+    fields = '|Номер   |Гос номер|Имя      |\n|маршрута|автобуса |Водителя |'
+    print(f'{"-"*30}\n{fields}\n{"-"*30}')
+    [print('|{:>8}|{:>9}|{:>9}|'.format(routeNum, GetField(busId, busData),
+                                        GetField(driverId, driverData)))for routeId, routeNum, busId, driverId in routeData]
+    print("-"*30)
+    input("Для продолжения нажмите Enter>")
+
+
+def PrepareAndPrint(col):
+    fields = '|Id      |Name      |'
+    print(f'{"-"*21}\n{fields}\n{"-"*21}')
+    [print('|{:>8}|{:>10}|'.format(id, name))for id, name in col]
+    print("-"*21)
+    input("Для продолжения нажмите Enter>")
+
+
+def GetField(id, col):
+    z = [y for x, y in col if id.strip() == x.strip()]
+    return z[0] if z else 'N/A'
+
+
 def print_bus():
-    return read_data_from_file('bus.txt')
+    return PrepareAndPrint(ReadDataFromFile('bus.txt'))
 
 
 def add_bus():
-    save_data_to_file('bus.txt', input("Введите параметры автобуса: "))
+    SaveDataToFile('bus.txt', input("Введите параметры автобуса: "))
+    print("Автобус добавлен!")
 
 
 def print_driver():
-    return read_data_from_file('driver.txt')
+    return PrepareAndPrint(ReadDataFromFile('driver.txt'))
 
 
 def add_driver():
-    save_data_to_file('driver.txt', input("Введите водителя: "))
+    SaveDataToFile('driver.txt', input("Введите водителя: "))
+    print("Водитель добавлен!")
 
 
 def print_route():
-    return read_data_from_file('route.txt')
+    CollectRoutes(ReadDataFromFile('bus.txt'), ReadDataFromFile('driver.txt'),
+                  ReadDataFromFile('route.txt'))
 
 
 def add_route():
-    save_data_to_file('route.txt', input("Введите маршрут: "))
+    SaveDataToFile('route.txt', input("Введите маршрут: "))
+    print("Маршрут добавлен!")

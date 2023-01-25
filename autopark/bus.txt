@@ -2,3 +2,6 @@ bus1, MP123T96
 bus2, OO654P77
 bus4, qwert
 bus3, 099F09
+bus6, 7788hhhh
+bus8, BBBB7777
+bus77, 88HHHHHH
