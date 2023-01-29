@@ -1,5 +1,8 @@
 import function as fn
 
+
+clear()
+
 menuitems = [
     ("1", "Вывод автобусов"),
     ("2", "Добавление автобуса"),
