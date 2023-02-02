@@ -13,7 +13,7 @@ def setMatrix():
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
-    await update.message.reply_text(f'Выбери команду  - /hi /time /help /sum /game')
+    await update.message.reply_text(f'Выбери команду  - /hi /time /help /game')
 
 
 async def hi_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -23,7 +23,7 @@ async def hi_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log(update, context)
-    await update.message.reply_text(f'/hi\n/time\n/help\n/sum\n/game')
+    await update.message.reply_text(f'/hi\n/time\n/help\n/game')
 
 
 async def time_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -61,6 +61,7 @@ async def gaming_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
                         break
                     else:
                         await update.message.reply_text('Неверный ввод. Ячейка занята')
+                        return
                 await update.message.reply_text(showMatrix(matrix))
 
                 if checkWin(matrix) == 1:
