@@ -10,6 +10,7 @@ def DeleteContact(fileName, text):
     with open(fileName, "w", encoding="utf8") as file:
         list(map(lambda x: file.write(x), data))
     if not data:
+
         print('Contact was not deleted!')
     else:
         print('Contact was deleted!')
@@ -38,6 +39,8 @@ def ChangeNum(file_name, oldNum, newNum):
 def ReadFile(name):
     with open(name, "r", encoding="utf8") as file:
         list(map(lambda x: print(x, end=""), file.read()))
+
+# test
 
 
 def AddLineFile(fileName, text):

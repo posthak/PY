@@ -1,4 +1,4 @@
-Ivanov, Ivan, Ivanovich, +79111234567
-Petrov, Petr, Petrovich, +79119876543
-Semenov, Semen, Semenovich, +79320983345
 Fedorov, Fedor, Fedorovich, +7000000000
+тест1
+тест2
+Adler
